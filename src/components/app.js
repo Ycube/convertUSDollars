@@ -8,11 +8,11 @@ import NavBar  from './navbar.js';
 export default class App extends Component {
   render() {
     return (
-      <div>   
-        <NavBar />     
-        <EuroConversion />
-        <InputForm />
-      </div>
+      <div className="row">
+        <div className="col s12"><NavBar /></div>
+        <div className="col s6"><InputForm /></div>
+      <div className="col s6"><EuroConversion /></div>
+    </div>
     );
   }
 }

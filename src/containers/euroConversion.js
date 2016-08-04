@@ -20,16 +20,26 @@ export class EuroConversion extends Component {
     return (
       <div> 
         <div>Today's USD to Euro Rate: { this.props.rates.rates.EUR } </div>
-        <div>Total in USD: ${ usd.toFixed(2) } </div>
-        <div>Total in Euros: €{ euro.toFixed(2) } </div>
-        <MoneyDisplay />
+                {/************EURO CARD**************/}
+        <div className="row">
+          <div className="col s12 m6">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">€{ euro.toFixed(2) }</span>
+              </div>
+              <div className="card-action">
+                <a href="https://www.ecb.europa.eu/home/html/index.en.html">€ Central Bank</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
       </div>
     );
   }
 }
 
- function mapStateToProps({ rates }) {
+function mapStateToProps({ rates }) {
   return { rates }; 
 }
 

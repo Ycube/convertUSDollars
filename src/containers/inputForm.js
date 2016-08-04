@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { addMoney } from '../actions/index'
+import MoneyCard from '../components/moneyCard';
 
 class InputForm extends Component {
   constructor(props) {
@@ -18,18 +19,30 @@ class InputForm extends Component {
   }
 
   render() {
+    let usd = this.props.rates.usd;
+
     return (
       <div>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 100)}>+100</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 20)}>+20</button>
-      {/*<img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/US20-front.jpg" />*/}
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 10)}>+10</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 5)}>+5</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 1)}>+1</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 0.25)}>+0.25</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 0.10)}>+0.10</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 0.05)}>+0.05</button>
-        <button className="btn btn-primary" onClick={this.handleClick.bind(this, 0.01)}>+0.01</button>
+        {/************USD CARD**************/}
+        <div className="row">
+          <div className="col s12 m6">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">$ { usd.toFixed(2) }</span>
+              </div>
+              <div className="card-action">
+                <a href="http://www.federalreserve.gov/">$ Reserve</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" onClick={this.handleClick.bind(this, 100)}><i className="material-icons">100</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" onClick={this.handleClick.bind(this, 20)}><i className="material-icons">20</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" onClick={this.handleClick.bind(this, 10)}><i className="material-icons">10</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" onClick={this.handleClick.bind(this, 5)}><i className="material-icons">5</i></a>
+        <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" onClick={this.handleClick.bind(this, 1)}><i className="material-icons">1</i></a>
       </div>
       
      )
@@ -37,8 +50,8 @@ class InputForm extends Component {
 
 }
 
-function mapStateToProps({ money }) {
-  return { money }; 
+function mapStateToProps({ money,rates }) {
+  return { money,rates }; 
 }
 
 function mapDispatchToProps(dispatch) {
