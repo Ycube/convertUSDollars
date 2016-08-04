@@ -10,13 +10,13 @@ Checkout this repo, install dependencies, then start the gulp process with the f
 
 ```
 	> git clone 
-	> cd 
+	> cd convertUSDollars
 	> npm install
 	> npm start
 ```
 
 ####Not Familiar with Git?#####
-Click [here](https://github.com/ycube/) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+Click [here](https://github.com/Ycube/convertUSDollars.git) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
 
 ```
 	> npm install
