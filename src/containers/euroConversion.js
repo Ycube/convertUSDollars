@@ -50,9 +50,27 @@ export class EuroConversion extends Component {
     }
 
     let billItems = mapObject(bills, (i) => { 
-      return <div key={i}> {bills[i]} {i} </div>;
+      return (
+       <div key={i}>  
+          €: {i} - {bills[i]}
+        </div>
+      );
     });
-  
+    
+    if (!coins) {
+      return (
+        <div className="row">
+          <div className="col s12 m12">
+            <div className="card blue-grey darken-1">
+              <div className="card-content white-text">
+                <span className="card-title">€{ euro.toFixed(2) }</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) 
+    }
+    
     return (
       <div> 
         {/************EURO CARD**************/}
@@ -68,15 +86,11 @@ export class EuroConversion extends Component {
 
       {/************Display Euros**************/}
         <div>
-          € Bills
-          <div> 
-
-          </div>
           <ul>
             { billItems }
+            <div>€ Coins: { coins.toFixed(2) }</div>
           </ul>
         </div>
-        <div>€ Coins: { coins.toFixed(2) }</div>
       </div>
     );
   }
