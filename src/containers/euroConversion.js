@@ -12,28 +12,71 @@ export class EuroConversion extends Component {
   }
 
   render() {
-    // console.log ('line 16 EuroConversion.js: ',this.props.rates)  
     let euro = this.props.rates.usd*this.props.rates.rates.EUR;
-    let usd = this.props.rates.usd;
-    
 
+    const makeBill = (amount) => {
+      let change = [],
+          total = 0;
+      [100, 50, 20, 10, 5].forEach((bills) => {
+        while (total + bills <= amount) {
+          change.push(bills);
+          total += bills;
+        }
+      });
+
+      return change;
+    };
+
+    const countBills = (moneyArr) => {
+      let bills = {};
+
+      for(var i = 0; i < moneyArr.length; i++) {
+        if (bills[moneyArr[i]]) {
+          bills[moneyArr[i]]++;
+        } else {
+          bills[moneyArr[i]] = 1;
+        }
+      }  
+      return bills;
+    };  
+
+    let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
+    let bills = countBills(makeBill(euro));
+
+function mapObject(object, callback) {
+  return Object.keys(object).map(function (key) {
+    return callback(key, object[key]);
+  });
+}
+
+  let billItems = mapObject(bills, (i) => { 
+    return <div key={i}> {bills[i]} {i} </div>;
+    });
+  
     return (
       <div> 
-        <div>Today's USD to Euro Rate: { this.props.rates.rates.EUR } </div>
-                {/************EURO CARD**************/}
+        {/************EURO CARD**************/}
         <div className="row">
-          <div className="col s12 m6">
+          <div className="col s12 m12">
             <div className="card blue-grey darken-1">
               <div className="card-content white-text">
                 <span className="card-title">€{ euro.toFixed(2) }</span>
-              </div>
-              <div className="card-action">
-                <a href="https://www.ecb.europa.eu/home/html/index.en.html">€ Central Bank</a>
               </div>
             </div>
           </div>
         </div>
 
+      {/************Display Euros**************/}
+        <div>
+          € Bills
+          <div> 
+
+          </div>
+          <ul>
+            { billItems }
+          </ul>
+        </div>
+        <div>€ Coins: { coins.toFixed(2) }</div>
       </div>
     );
   }
