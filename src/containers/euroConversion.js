@@ -42,15 +42,15 @@ export class EuroConversion extends Component {
 
     let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
     let bills = countBills(makeBill(euro));
+    
+    function mapObject(object, callback) {
+      return Object.keys(object).map(function (key) {
+        return callback(key, object[key]);
+      });
+    }
 
-function mapObject(object, callback) {
-  return Object.keys(object).map(function (key) {
-    return callback(key, object[key]);
-  });
-}
-
-  let billItems = mapObject(bills, (i) => { 
-    return <div key={i}> {bills[i]} {i} </div>;
+    let billItems = mapObject(bills, (i) => { 
+      return <div key={i}> {bills[i]} {i} </div>;
     });
   
     return (
