@@ -22,7 +22,7 @@ export class EuroConversion extends Component {
       let imgSrc = imgBill(key); 
       return (
        <div key={index}>  
-          €: { billType } - <img src={ imgSrc } style={ {width:'100', height:'25'} }/>
+          { billType } of <img src={ imgSrc } style={ {width:'150', height:'70'} }/>
         </div>
       );
     });

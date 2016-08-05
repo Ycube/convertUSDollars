@@ -26,15 +26,15 @@ export const mapObject = (object, callback) => {
 export const imgBill = (billType) => {
   switch(billType) {
     case '5' : 
-      return 'http://www.theibns.org/joomla/images/stories/bnoy2013/EUR-5-Front.png';
+      return './src/assets/EUR_5.jpg';
     case '10' : 
-      return 'https://openclipart.org/image/2400px/svg_to_png/184845/10EuroSchein.png';
+      return './src/assets/EUR_10.jpg';
     case '20' : 
-      return 'http://www.banknotenews.com/files/european_monetary_union_ecb_20_euros_2015.00.00_b110x3_pnl_xa_3994337997_f.jpg';
+      return './src/assets/EUR_20.jpg';
     case '50' :
-      return 'https://openclipart.org/image/2400px/svg_to_png/185895/50EuroSchein.png';
+      return './src/assets/EUR_50.jpg';
     case '100' :
-      return 'http://news.bbc.co.uk/olmedia/1500000/images/_1500330_100euro300.jpg';
+      return './src/assets/EUR_100.jpg';
     default : 
       return;
   }
