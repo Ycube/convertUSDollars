@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux';;
 import axios from 'axios';
 import { fetchRates } from '../actions/index'
 import MoneyDisplay from './moneyDisplay';
+import { makeBill,countBills, mapObject } from '../helper/utils';
 
 export class EuroConversion extends Component {
 
@@ -14,41 +15,9 @@ export class EuroConversion extends Component {
   render() {
     let euro = this.props.rates.usd*this.props.rates.rates.EUR;
 
-    const makeBill = (amount) => {
-      let change = [],
-          total = 0;
-      [100, 50, 20, 10, 5].forEach((bills) => {
-        while (total + bills <= amount) {
-          change.push(bills);
-          total += bills;
-        }
-      });
-
-      return change;
-    };
-
-    const countBills = (moneyArr) => {
-      let bills = {};
-
-      for(var i = 0; i < moneyArr.length; i++) {
-        if (bills[moneyArr[i]]) {
-          bills[moneyArr[i]]++;
-        } else {
-          bills[moneyArr[i]] = 1;
-        }
-      }  
-      return bills;
-    };  
-
     let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
     let bills = countBills(makeBill(euro));
     
-    function mapObject(object, callback) {
-      return Object.keys(object).map(function (key) {
-        return callback(key, object[key]);
-      });
-    }
-
     let billItems = mapObject(bills, (i) => { 
       return (
        <div key={i}>  
@@ -70,7 +39,7 @@ export class EuroConversion extends Component {
         </div>
       ) 
     }
-    
+
     return (
       <div> 
         {/************EURO CARD**************/}
