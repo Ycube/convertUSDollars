@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';;
 import axios from 'axios';
 import { fetchRates } from '../actions/index'
 import MoneyDisplay from './moneyDisplay';
-import { makeBill,countBills, mapObject } from '../helper/utils';
+import { makeBill, countBills, mapObject, imgBill } from '../helper/utils';
 
 export class EuroConversion extends Component {
 
@@ -16,12 +16,13 @@ export class EuroConversion extends Component {
     let euro = this.props.rates.usd*this.props.rates.rates.EUR;
 
     let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
-    let bills = countBills(makeBill(euro));
+    let bills = countBills(makeBill(euro)); 
     
-    let billItems = mapObject(bills, (i) => { 
+    let billItems = mapObject(bills, (billType, key, index) => {
+      let imgSrc = imgBill(key); 
       return (
-       <div key={i}>  
-          €: {i} - {bills[i]}
+       <div key={index}>  
+          €: { billType } - <img src={ imgSrc } style={ {width:'100', height:'25'} }/>
         </div>
       );
     });

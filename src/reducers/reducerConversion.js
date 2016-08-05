@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export default function(state = initialState, action){
-  // console.log('TEST: ', test.usd + action.value)
   switch (action.type) {
     case FETCH_RATES : 
       return Object.assign({}, {...state, ...action.payload.data })
