@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';;
 import axios from 'axios';
 import { fetchRates } from '../actions/index'
-import MoneyDisplay from './moneyDisplay';
 import { makeBill, countBills, mapObject, imgBill } from '../helper/utils';
+import MoneyDispaly from '../components/MoneyDisplay';
 
 export class EuroConversion extends Component {
 
@@ -22,37 +22,21 @@ export class EuroConversion extends Component {
       let imgSrc = imgBill(key); 
       return (
        <div key={index}>  
-          { billType } of <img src={ imgSrc } style={ {width:'150', height:'70'} }/>
+        <img src={ imgSrc } style={ {width:'150', height:'70'} } /> x { billType }
         </div>
       );
     });
     
     if (!coins) {
       return (
-        <div className="row">
-          <div className="col s12 m12">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className="card-title">€{ euro.toFixed(2) }</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <MoneyDispaly money={ euro } />
       ) 
     }
 
     return (
       <div> 
-        {/************EURO CARD**************/}
-        <div className="row">
-          <div className="col s12 m12">
-            <div className="card blue-grey darken-1">
-              <div className="card-content white-text">
-                <span className="card-title">€{ euro.toFixed(2) }</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/************Eurp Display**************/}
+        <MoneyDispaly money={ euro } />
 
       {/************Display Euros**************/}
         <div>
