@@ -15,7 +15,7 @@ export class NavBar extends Component {
     return (
       <nav>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo center">$ to € </a>
+          <a href="#" className="brand-logo center">Dollar to Euro </a>
           <ul id="nav-mobile" className="left hide-on-med-and-down">
             <li><a href="https://github.com/Ycube/convertUSDollars">GitHub Repo</a></li>
           </ul>

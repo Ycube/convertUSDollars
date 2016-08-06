@@ -17,13 +17,23 @@ export class EuroConversion extends Component {
 
     let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
     let bills = countBills(makeBill(euro)); 
+    // const imgStyle = {
+    //   margin: 10 0 0 0;
+    // }
     
     let billItems = mapObject(bills, (billType, key, index) => {
       let imgSrc = imgBill(key); 
       return (
-       <div key={index}>  
-        <img src={ imgSrc } style={ {width:'150', height:'70'} } /> x { billType }
-        </div>
+       <div className="row" key={index}>  
+         <div className="right-align col s6">
+           <img 
+           src={ imgSrc } />
+         </div>
+
+         <div className="left-align col s6">
+           <h4> X { billType } </h4>
+         </div>
+       </div>
       );
     });
     
@@ -39,10 +49,10 @@ export class EuroConversion extends Component {
         <MoneyDispaly symbol='€' money={ euro } />
 
       {/************Display Euros**************/}
-        <div>
+        <div className="center-align" >
           <ul>
             { billItems }
-            <div>€ Coins: { coins.toFixed(2) }</div>
+            <h4>€ Coins: { coins.toFixed(2) }</h4>
           </ul>
         </div>
       </div>

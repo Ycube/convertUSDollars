@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import InputForm from '../containers/InputForm';
+import InputForm from '../containers/inputForm';
 import EuroConversion from '../containers/EuroConversion';
 import NavBar from './Navbar'
 
@@ -9,6 +9,7 @@ export default class App extends Component {
     return (
     <div className="row">
       <div className="col s12"><NavBar /></div>
+      <h5 className="center-align"> Click US Bills to convert into Euros </h5>
       <div className="col s6"><InputForm /></div>
       <div className="col s6"><EuroConversion /></div>
     </div>

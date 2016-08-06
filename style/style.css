@@ -1,12 +1,14 @@
 a {
-  margin: 5px 0px 0px 0px;
+  margin: 5px 0px 17px 0px;
 }
 
 img {
-  height: 10px, 
-  width: 10px
+  width: 150px;
+  height: 70px;
+  margin: 0px 0px 0px 0px;;
 }
 
 html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
+

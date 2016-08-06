@@ -24,7 +24,6 @@ class InputForm extends Component {
         {/************Dollar Display**************/}
         <MoneyDispaly symbol='$' money={ usd } />
         
-        <span>Click to add or subtract from Dollars to convert to Euros</span>
         <div className="row">
           {/************Minus Buttons**************/}
           <div className="col s6">
@@ -70,34 +69,19 @@ class InputForm extends Component {
           <div className="col s6">
             <ul>
               <li>
-                <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" 
-                   onClick={this.handleClick.bind(this, 1)}>
-                   <i className="material-icons">+1</i>
-                 </a>
+                <img onClick={this.handleClick.bind(this, 1)} src="./src/assets/USD_1.jpg" />
               </li>
               <li>
-                <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" 
-                   onClick={this.handleClick.bind(this, 5)}>
-                   <i className="material-icons">+5</i>
-                 </a>
+                <img onClick={this.handleClick.bind(this, 5)} src="./src/assets/USD_5.jpg" />
               </li>
               <li>
-                <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" 
-                   onClick={this.handleClick.bind(this, 10)}>
-                   <i className="material-icons">+10</i>
-                 </a>
+                <img onClick={this.handleClick.bind(this, 10)} src="./src/assets/USD_10.jpg" />
               </li>
               <li>
-                <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" 
-                   onClick={this.handleClick.bind(this, 20)}>
-                   <i className="material-icons">+20</i>
-                 </a>
+                <img onClick={this.handleClick.bind(this, 20)} src="./src/assets/USD_20.jpg" />
               </li>
               <li>
-                <a className="btn-floating btn-large waves-effect waves-light teal lighten-2" 
-                   onClick={this.handleClick.bind(this, 100)}>
-                   <i className="material-icons">+100</i>
-                 </a>
+                <img onClick={this.handleClick.bind(this, 100)} src="./src/assets/USD_100.jpg" />
               </li>
             </ul>
           </div>
