@@ -1,4 +1,4 @@
-import { FETCH_RATES, ADD_MONEY, SUB_MONEY, CONVERT_MONEY } from '../actions/index';
+import { FETCH_RATES, ADD_MONEY, SUB_MONEY, CONVERT_MONEY } from '../actions';
 
 const initialState = {
   rates: {},

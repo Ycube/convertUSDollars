@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-// fixer.io
-
 const rootURL = 'http://api.fixer.io/latest?base=USD';
 
 export const FETCH_RATES = 'FETCH_RATES';

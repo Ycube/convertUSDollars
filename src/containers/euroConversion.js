@@ -29,14 +29,14 @@ export class EuroConversion extends Component {
     
     if (!coins) {
       return (
-        <MoneyDispaly money={ euro } />
+        <MoneyDispaly symbol='€' money={ euro } />
       ) 
     }
 
     return (
       <div> 
         {/************Eurp Display**************/}
-        <MoneyDispaly money={ euro } />
+        <MoneyDispaly symbol='€' money={ euro } />
 
       {/************Display Euros**************/}
         <div>

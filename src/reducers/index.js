@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import ConversionReducer from './reducerConversion';
+import Reducer from './reducer';
 
 const rootReducer = combineReducers({
-  rates: ConversionReducer
+  rates: Reducer
 });
 
 export default rootReducer;

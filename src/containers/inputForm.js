@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addMoney, subMoney } from '../actions/index'
+import { addMoney, subMoney } from '../actions'
 import MoneyDispaly from '../components/MoneyDisplay';
 
 class InputForm extends Component {
@@ -118,4 +118,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ addMoney,subMoney }, dispatch);
 } 
 
-export default connect(mapStateToProps, mapDispatchToProps  )(InputForm);
+export default connect(mapStateToProps, mapDispatchToProps)(InputForm);
