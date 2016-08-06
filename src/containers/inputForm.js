@@ -1,7 +1,7 @@
 import React, { Component } from 'react'; 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { addMoney } from '../actions/index'
+import { addMoney, subMoney } from '../actions/index'
 import MoneyDispaly from '../components/MoneyDisplay';
 
 class InputForm extends Component {
@@ -12,13 +12,13 @@ class InputForm extends Component {
   }
 
   handleClick(value) {
-    this.props.addMoney(this.state.usd + value);
+    value > 0 ? this.props.addMoney(this.state.usd + value) : this.props.subMoney(this.state.usd - value)
   }
 
   render() {
     let usd = this.props.rates.usd;
-
     let disabled = usd <= 0 ? 'disabled' : '';
+
     return (
       <div>
         {/************Dollar Display**************/}
@@ -39,28 +39,28 @@ class InputForm extends Component {
               <li>
                 <a className="btn-floating btn-large waves-effect waves-light red lighten-2" 
                    disabled={ disabled } 
-                   onClick={this.handleClick.bind(this, -5)}>
+                   onClick={usd > 0 ? this.handleClick.bind(this, -5) : null}>
                   <i className="material-icons">-5</i>
                 </a>
               </li>
               <li>
                 <a className="btn-floating btn-large waves-effect waves-light red lighten-2" 
                    disabled={ disabled } 
-                   onClick={this.handleClick.bind(this, -10)}>
+                   onClick={usd > 0 ? this.handleClick.bind(this, -10) : null}>
                    <i className="material-icons">-10</i>
                  </a>
               </li>
               <li>
                 <a className="btn-floating btn-large waves-effect waves-light red lighten-2" 
                    disabled={ disabled } 
-                   onClick={this.handleClick.bind(this, -20)}>
+                   onClick={usd > 0 ? this.handleClick.bind(this, -20) : null}>
                    <i className="material-icons">-20</i>
                  </a>
               </li>
               <li>
                 <a className="btn-floating btn-large waves-effect waves-light red lighten-2" 
                    disabled={ disabled } 
-                   onClick={this.handleClick.bind(this, -100)}>
+                   onClick={usd > 0 ? this.handleClick.bind(this, -100) : null}>
                    <i className="material-icons">-100</i>
                  </a>
               </li>
@@ -115,7 +115,7 @@ function mapStateToProps({ money,rates }) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addMoney }, dispatch);
+  return bindActionCreators({ addMoney,subMoney }, dispatch);
 } 
 
 export default connect(mapStateToProps, mapDispatchToProps  )(InputForm);

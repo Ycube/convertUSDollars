@@ -1,4 +1,4 @@
-import { FETCH_RATES, ADD_MONEY, CONVERT_MONEY } from '../actions/index';
+import { FETCH_RATES, ADD_MONEY, SUB_MONEY, CONVERT_MONEY } from '../actions/index';
 
 const initialState = {
   rates: {},
@@ -12,9 +12,15 @@ export default function(state = initialState, action){
       return Object.assign({}, {...state, ...action.payload.data })
 
     case ADD_MONEY : 
-      let test =  Object.assign({}, {...state, usd: {...action.value}})
       return Object.assign({}, {...state, usd: state.usd+action.value })
-    
+
+    case SUB_MONEY : 
+      if (state.usd - action.value < 0) {
+        return Object.assign({}, {...state, usd: 0 }) 
+      } else {
+        return Object.assign({}, {...state, usd: state.usd-action.value })
+      }
+        
     case CONVERT_MONEY : 
     return Object.assign({}, {...state, euro: {...action.value}})
   }
