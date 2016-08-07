@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import InputForm from '../containers/inputForm';
-import EuroConversion from '../containers/EuroConversion';
+import EuroConversion from '../containers/euroConversion';
 import NavBar from './navbar';
 
 export default class App extends Component {
