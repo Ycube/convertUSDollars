@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const rootURL = 'http://api.fixer.io/latest?base=USD';
+const rootURL = 'https://api.fixer.io/latest?base=USD';
 
 export const FETCH_RATES = 'FETCH_RATES';
 export const ADD_MONEY = 'ADD_MONEY';
