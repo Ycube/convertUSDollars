@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import InputForm from '../containers/inputForm';
 import EuroConversion from '../containers/EuroConversion';
-import NavBar from './Navbar'
+import NavBar from './navbar';
 
 export default class App extends Component {
   render() {

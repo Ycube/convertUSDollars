@@ -6,6 +6,7 @@ export const FETCH_RATES = 'FETCH_RATES';
 export const ADD_MONEY = 'ADD_MONEY';
 export const SUB_MONEY = 'SUB_MONEY';
 export const CONVERT_MONEY = 'CONVERT_MONEY';
+export const CLEAR_MONEY = 'CLEAR_MONEY';
 
 export function fetchRates() {
 
@@ -36,5 +37,11 @@ export function convertMoney(value) {
   return {
     type: CONVERT_MONEY,
     value
+  }
+}
+
+export function clearMoney() {
+  return {
+    type: CLEAR_MONEY
   }
 }

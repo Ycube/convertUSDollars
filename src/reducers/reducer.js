@@ -1,4 +1,8 @@
-import { FETCH_RATES, ADD_MONEY, SUB_MONEY, CONVERT_MONEY } from '../actions';
+import { FETCH_RATES, 
+         ADD_MONEY, 
+         SUB_MONEY, 
+         CONVERT_MONEY, 
+         CLEAR_MONEY } from '../actions';
 
 const initialState = {
   rates: {},
@@ -23,6 +27,9 @@ export default function(state = initialState, action){
         
     case CONVERT_MONEY : 
     return Object.assign({}, {...state, euro: {...action.value}})
+
+    case CLEAR_MONEY : 
+      return Object.assign({}, {...state, usd: 0 }) 
   }
   return state;
 }

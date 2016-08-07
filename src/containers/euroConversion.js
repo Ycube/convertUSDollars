@@ -5,6 +5,7 @@ import axios from 'axios';
 import { fetchRates } from '../actions/index'
 import { makeBill, countBills, mapObject, imgBill } from '../helper/utils';
 import MoneyDispaly from '../components/MoneyDisplay';
+import ClearMoney from '../components/clearMoney';
 
 export class EuroConversion extends Component {
 
@@ -14,17 +15,13 @@ export class EuroConversion extends Component {
 
   render() {
     let euro = this.props.rates.usd*this.props.rates.rates.EUR;
-
     let coins = euro - makeBill(euro).reduce( (a,b) => { return a+b;}, 0);
     let bills = countBills(makeBill(euro)); 
-    // const imgStyle = {
-    //   margin: 10 0 0 0;
-    // }
     
     let billItems = mapObject(bills, (billType, key, index) => {
       let imgSrc = imgBill(key); 
       return (
-       <div className="row" key={index}>  
+       <div className="row" key={index}>
          <div className="right-align col s6">
            <img 
            src={ imgSrc } />
@@ -47,12 +44,15 @@ export class EuroConversion extends Component {
       <div> 
         {/************Eurp Display**************/}
         <MoneyDispaly symbol='€' money={ euro } />
+        <div className="center-align">
+          <ClearMoney />
+        </div>
 
       {/************Display Euros**************/}
         <div className="center-align" >
           <ul>
             { billItems }
-            <h4>€ Coins: { coins.toFixed(2) }</h4>
+            <h5>€ Coins: { coins.toFixed(2) }</h5>
           </ul>
         </div>
       </div>
