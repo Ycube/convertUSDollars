@@ -6,12 +6,11 @@
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "start": "nodemon server.js",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch",
     "prod": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p"
-
+    "postinstall": "webpack -p --config webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,8 +21,7 @@
     "jquery": "^2.2.1",
     "jsdom": "^8.1.0",
     "mocha": "^2.4.5",
-    "react-addons-test-utils": "^0.14.7",
-    "webpack-dev-server": "^1.14.0"
+    "react-addons-test-utils": "^0.14.7"
   },
   "dependencies": {
     "axios": "^0.13.1",
@@ -40,6 +38,8 @@
     "react-router": "^2.0.1",
     "redux": "^3.0.4",
     "redux-promise": "^0.5.3",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "webpack-dev-server": "^1.14.0",
+    "webpack-hot-middleware": "^2.12.2"
   }
 }
